@@ -2,6 +2,7 @@ sistema de gerenciamento de biblioteca online
 
 Escopo
 Desenvolver um sistema online para gerenciamento de biblioteca que permita a catalogação, pesquisa, empréstimo e devolução de livros, além de facilitar a administração de usuários e estatísticas de uso.
+
 -----------------------------------------------------------------------------------------------
 Objetivos
 Específicos : 
@@ -16,6 +17,7 @@ Relevantes :
 -Facilitar o acesso à leitura e à informação para a comunidade local, promovendo a cultura e a educação.
 -Integrar funcionalidades que atendam às necessidades dos usuários e dos administradores, garantindo a sustentabilidade do sistema.
 -Contribuir para a digitalização de bibliotecas, acompanhando as tendências atuais de gerenciamento de informações.
+
 --------------------------------------------------------------------------------------------------
 
 Recursos necessários :
@@ -36,6 +38,7 @@ Padrões de Projeto: MVC (Model-View-Controller) para organização do código.
 
 Banco de Dados
 SGBD: MySQL ou PostgreSQL para armazenamento de dados.
+
 --------------------------------------------------------------------------------------------------
 Análise de Riscos e Mitigação
 
@@ -52,4 +55,4 @@ mitigação : Definir claramente os requisitos no início do projeto e document�
 mitigação : Ter um plano de manutenção e suporte para corrigir rapidamente qualquer problema após o lançamento.
 
 --------------------------------------------------------------------------------------------------
-![Descrição da imagem](img/imagem.png)
+(img/imagem.png)
