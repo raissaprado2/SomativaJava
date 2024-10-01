@@ -58,4 +58,18 @@ mitigação : Definir claramente os requisitos no início do projeto e document�
 mitigação : Ter um plano de manutenção e suporte para corrigir rapidamente qualquer problema após o lançamento.
 
 --------------------------------------------------------------------------------------------------
-(img/imagem.png)
+
+Cronograma :
+
+![Cronograma](img/image.png)
+
+-------------------------------------------------------------------------------------------------
+
+Diagramas : 
+
+![Diagrama de Classe](img/classe.png)
+
+![Diagrama de uso](img/uso.png)
+
+![Diagrama de fluxo](img/fluxo.png)
+
