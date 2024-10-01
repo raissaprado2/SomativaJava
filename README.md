@@ -5,14 +5,17 @@ Desenvolver um sistema online para gerenciamento de biblioteca que permita a cat
 
 -----------------------------------------------------------------------------------------------
 Objetivos
+
 Específicos : 
 - Desenvolver uma interface amigável para usuários e administradores que facilite a navegação e o uso do sistema.
 - Implementar um sistema de cadastro e autenticação seguro para usuários.
 - Estabelecer um processo automatizado para empréstimos e devoluções de livros.
 - Desenvolver um painel de administração para gerenciar livros e usuários.
+
 Atingíveis :
 - Utilizar tecnologias conhecidas e com suporte ativo para garantir que a equipe de desenvolvimento tenha os recursos necessários.
 - Planejar a fase de testes com usuários reais para ajustar funcionalidades antes do lançamento final.
+
 Relevantes : 
 -Facilitar o acesso à leitura e à informação para a comunidade local, promovendo a cultura e a educação.
 -Integrar funcionalidades que atendam às necessidades dos usuários e dos administradores, garantindo a sustentabilidade do sistema.
