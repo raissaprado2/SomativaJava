@@ -1,6 +1,7 @@
 sistema de gerenciamento de biblioteca online
 
 Escopo
+
 Desenvolver um sistema online para gerenciamento de biblioteca que permita a catalogação, pesquisa, empréstimo e devolução de livros, além de facilitar a administração de usuários e estatísticas de uso.
 
 -----------------------------------------------------------------------------------------------
