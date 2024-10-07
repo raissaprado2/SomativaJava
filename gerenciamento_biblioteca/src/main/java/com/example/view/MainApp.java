@@ -1,44 +1,66 @@
 package com.example.view;
 
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+import com.example.Controller.EmprestimoController;
+import com.example.Controller.LivroController;
+import com.example.Controller.UsuarioController;
+import com.example.Model.Usuario;
 
-import java.util.ArrayList;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class MainApp extends Application {
-    private ArrayList<String> livros = new ArrayList<>(); // Lista para armazenar livros
+@SuppressWarnings("unused")
+public class MainApp {
+    private EmprestimoController emprestimoController;
+    private LivroController livroController;
+    private UsuarioController usuarioController;
 
-    @Override
-    public void start(Stage primaryStage) {
-        Label label = new Label("Digite o nome do livro:");
-        TextField textField = new TextField();
-        Button btn = new Button("Adicionar Livro");
-        ListView<String> listView = new ListView<>(); // Lista para exibir livros
+    public MainApp() {
+        emprestimoController = new EmprestimoController();
+        livroController = new LivroController();
+        usuarioController = new UsuarioController();
+        initializeUI();
+    }
 
-        btn.setOnAction(e -> {
-            String livro = textField.getText();
-            if (!livro.isEmpty()) {
-                livros.add(livro); // Adiciona o livro à lista
-                listView.getItems().add(livro); // Atualiza a ListView
-                textField.clear(); // Limpa o campo de texto
-                System.out.println("Livro adicionado: " + livro);
-            }
-        });
+    public MainApp(Usuario usuario) {
+        //TODO Auto-generated constructor stub
+    }
 
-        VBox root = new VBox(10); // VBox com espaçamento de 10
-        root.getChildren().addAll(label, textField, btn, listView); // Adiciona todos os componentes
-        primaryStage.setScene(new Scene(root, 400, 300)); // Aumenta a largura da janela
-        primaryStage.setTitle("Gerenciamento de Biblioteca");
-        primaryStage.show();
+    private void initializeUI() {
+        JFrame frame = new JFrame("Sistema de Biblioteca");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 300);
+        frame.setLayout(new GridLayout(0, 1)); // Usar GridLayout para cards
+
+        // Criar um card para Gerenciar Livros
+        JPanel panelLivros = createCard("Gerenciar Livros", e -> new LivroView(livroController));
+        frame.add(panelLivros);
+
+        // Criar um card para Gerenciar Usuários
+        JPanel panelUsuarios = createCard("Gerenciar Usuários", e -> new LoginView(usuarioController));
+        frame.add(panelUsuarios);
+
+        // Criar um card para Gerenciar Empréstimos
+        JPanel panelEmprestimos = createCard("Gerenciar Empréstimos", e -> new EmprestimoView(emprestimoController));
+        frame.add(panelEmprestimos);
+
+        frame.setVisible(true);
+    }
+
+    private JPanel createCard(String title, ActionListener actionListener) {
+        JPanel card = new JPanel();
+        card.setLayout(new BorderLayout());
+        card.setBorder(BorderFactory.createTitledBorder(title));
+
+        JButton button = new JButton("Abrir");
+        button.addActionListener(actionListener);
+        card.add(button, BorderLayout.CENTER);
+
+        return card;
     }
 
     public static void main(String[] args) {
-        launch(args);
+        SwingUtilities.invokeLater(MainApp::new);
     }
 }

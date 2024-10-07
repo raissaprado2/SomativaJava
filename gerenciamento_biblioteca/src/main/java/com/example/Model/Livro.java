@@ -2,6 +2,7 @@ package com.example.Model;
 
 import lombok.Data;
 
+@Data
 public class Livro {
     private Long id;
     private String titulo;
@@ -13,22 +14,33 @@ public class Livro {
         this.autor = autor;
         this.disponivel = true;
     }
-    
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Object object) {
+        this.id = (Long) object;
+    }
 
     public String getTitulo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTitulo'");
+        return titulo;
     }
 
-
-    public void setId(Long long1) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setId'");
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
+    public String getAutor() {
+        return autor;
+    }
 
-    public Object getId() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getId'");
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Título: %s, Autor: %s", titulo, autor);
     }
 }

@@ -1,28 +1,43 @@
 package com.example.Model;
 
-import lombok.Data;
-
 public class Usuario {
     private Long id;
     private String nome;
     private String email;
+    private String senha; // Armazena a senha
+    private boolean ehAdmin; // Indica se o usuário é administrador
+
+    // Construtor
+    public Usuario(String nome, String email, String senha, boolean ehAdmin) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.ehAdmin = ehAdmin;
+    }
+
+    // Getters e Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
     }
 
-    public Usuario(String nome, String email) {
-        this.nome = nome;
-        this.email = email;
+    public String getEmail() {
+        return email;
     }
 
-    public void setId(Long long1) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setId'");
+    public String getSenha() {
+        return senha;
     }
 
-    public Object getId() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getId'");
+    public boolean isEhAdmin() {
+        return ehAdmin;
     }
+
 }

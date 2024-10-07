@@ -1,12 +1,14 @@
 // LivroController.java
 package com.example.Controller;
 
+import com.example.Model.Emprestimo;
 import com.example.Model.Livro;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@SuppressWarnings("unused")
 public class LivroController {
 
     private List<Livro> livros = new ArrayList<>();
@@ -29,10 +31,10 @@ public class LivroController {
                 .orElse(null);
     }
 
-    public Livro atualizarLivro(Long id, Livro livro) {
+    public Livro atualizarLivro(Object object, Livro livro) {
         for (int i = 0; i < livros.size(); i++) {
-            if (livros.get(i).getId().equals(id)) {
-                livro.setId(id);
+            if (livros.get(i).getId().equals(object)) {
+                livro.setId(object);
                 livros.set(i, livro);
                 return livro;
             }
@@ -40,7 +42,13 @@ public class LivroController {
         return null;
     }
 
-    public boolean deletarLivro(Long id) {
-        return livros.removeIf(l -> l.getId().equals(id));
+    public boolean deletarLivro(Object object) {
+        return livros.removeIf(l -> l.getId().equals(object));
+    }
+
+    public void registrarEmprestimo(Emprestimo emprestimo) {
+        // Lógica para registrar o empréstimo de um livro
+        // Exemplo: Salvar no banco de dados ou adicionar à lista
+        System.out.println("Empréstimo registrado para o livro: " + emprestimo.getLivro());
     }
 }
