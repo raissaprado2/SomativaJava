@@ -2,9 +2,11 @@ package com.example.Controller;
 
 import com.example.Model.Usuario;
 import com.example.DAO.UsuarioDAO;
+import com.example.DAO.CadastroDAO;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class UsuarioController {
     private UsuarioDAO usuarioDAO;
 
