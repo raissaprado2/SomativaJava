@@ -2,7 +2,7 @@ sistema de gerenciamento de biblioteca online
 
 Escopo
 
-Desenvolver um sistema online para gerenciamento de biblioteca que permita a catalogação, pesquisa, empréstimo e devolução de livros, além de facilitar a administração de usuários e estatísticas de uso.
+Desenvolver um sistema para gerenciamento de biblioteca que permita adicionar, atualizar e deletar livros , cadastro e login, autenticação de usuários , empréstimo e devolução de livros, além de facilitar a administração de usuários e estatísticas de uso.
 
 -----------------------------------------------------------------------------------------------
 Objetivos
@@ -33,11 +33,11 @@ Gerente de Projeto: Responsável pelo planejamento, monitoramento e controle do 
 Testadores: Profissionais para realizar testes de funcionalidade, usabilidade e desempenho.
 
 Frontend
-Linguagens: HTML, CSS, JavaScript.
+Linguagens: Java Swing.
 Frameworks: React, Angular ou Vue.js para desenvolvimento da interface do usuário.
 
 Backend
-Linguagens: Node.js (JavaScript) ou Python (Flask ou Django).
+Linguagens: Java .
 Padrões de Projeto: MVC (Model-View-Controller) para organização do código.
 
 Banco de Dados
@@ -73,4 +73,12 @@ Diagramas :
 ![Diagrama de uso](img/uso.png)
 
 ![Diagrama de fluxo](img/fluxo.png)
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+Manual do usuário : 
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+Testes Unitários : 
 
