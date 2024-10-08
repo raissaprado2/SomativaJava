@@ -82,14 +82,6 @@ Manual do Usuário: Gerenciamento de Biblioteca
 Introdução
 O projeto Gerenciamento de Biblioteca é uma aplicação Java que permite o controle eficiente de livros, usuários e empréstimos em uma biblioteca. Este manual fornece orientações sobre como instalar, configurar e usar o sistema.
 
-Requisitos
-Antes de começar, verifique se você possui os seguintes requisitos:
-
-Java Development Kit (JDK): Versão 8 ou superior.
-Maven: Para gerenciamento de dependências (opcional, se usado no projeto).
-IDE: Recomenda-se utilizar uma IDE como Eclipse ou IntelliJ IDEA.
-Instalação
-
 Clone o repositório:
 
 bash
@@ -111,25 +103,33 @@ Execute o projeto: Após a compilação, você pode executar a aplicação. O m�
 
 Uso : 
 
-Funcionalidades
+FUNCIONALIDADES
+
 Cadastro de Livros: Adicione novos livros ao sistema.
+
 Cadastro de Usuários: Registre novos usuários que podem emprestar livros.
+
 Empréstimos: Gerencie os empréstimos de livros para os usuários.
+
 Devoluções: Controle a devolução de livros emprestados.
 Passos para Utilização
+
 Inicie a aplicação: Execute a classe principal do projeto.
+
 Interaja com o menu: O sistema apresentará um menu interativo. Escolha a opção desejada digitando o número correspondente.
 Siga as instruções na tela: Para cada funcionalidade, siga as instruções que aparecem para realizar as operações.
 Suporte
+
 Se você encontrar problemas ou tiver dúvidas, considere as seguintes opções:
 
-Issues do GitHub: Verifique se o problema já foi relatado ou crie uma nova issue.
 Documentação: Consulte a documentação no repositório para mais detalhes sobre cada funcionalidade.
+
 Contato: Você pode entrar em contato com o autor do projeto através do GitHub.
+
 Conclusão
 Agradecemos por usar o Gerenciamento de Biblioteca. Esperamos que a aplicação facilite o gerenciamento de sua biblioteca!
 
--------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
 
 Testes Unitários : 
 
