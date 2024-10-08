@@ -39,5 +39,4 @@ public class Usuario {
     public boolean isEhAdmin() {
         return ehAdmin;
     }
-
 }

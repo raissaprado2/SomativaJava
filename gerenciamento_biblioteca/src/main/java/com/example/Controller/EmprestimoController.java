@@ -1,35 +1,36 @@
-// EmprestimoController.java
 package com.example.Controller;
 
+import com.example.DAO.EmprestimoDAO;
 import com.example.Model.Emprestimo;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
-import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings("unused")
 public class EmprestimoController {
-    private List<Emprestimo> emprestimos;
-    private LivroController livroController; // Supondo que Biblioteca contém métodos para interação com o banco de dados
+    private EmprestimoDAO emprestimoDAO;
 
     public EmprestimoController() {
-        this.emprestimos = new ArrayList<>();
-        this.livroController = new LivroController();
+        this.emprestimoDAO = new EmprestimoDAO();
     }
 
     public void registrarEmprestimo(String dataEmprestimo, String dataDevolucao, String livro, String usuario) {
         Emprestimo novoEmprestimo = new Emprestimo(dataEmprestimo, dataDevolucao, livro, usuario);
-        livroController.registrarEmprestimo(novoEmprestimo);
-        emprestimos.add(novoEmprestimo);
-        System.out.println("Empréstimo registrado e adicionado à lista.");
+        emprestimoDAO.save(novoEmprestimo); // Salva no banco de dados
+        System.out.println("Empréstimo registrado e salvo no banco de dados.");
     }
 
     public List<Emprestimo> listarEmprestimos() {
-        return emprestimos; // Pode ser aprimorado para buscar do banco de dados
+        return emprestimoDAO.findAll(); // Busca do banco de dados
     }
 
-    // Outros métodos como buscarEmprestimo por usuário ou livro podem ser adicionados aqui
-}
+    public Emprestimo buscarEmprestimoPorId(int id) {
+        return emprestimoDAO.findById(id); // Busca um empréstimo específico
+    }
 
+    public void atualizarEmprestimo(Emprestimo emprestimo) {
+        emprestimoDAO.update(emprestimo); // Atualiza no banco de dados
+    }
+
+    public boolean deletarEmprestimo(int id) {
+        return emprestimoDAO.delete(id); // Deleta um empréstimo
+    }
+}

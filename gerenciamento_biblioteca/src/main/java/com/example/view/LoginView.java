@@ -17,17 +17,17 @@ public class LoginView {
     private UsuarioController usuarioController;
 
     public LoginView(UsuarioController usuarioController) {
-        this.usuarioController = usuarioController; // Recebe o controller
+        this.usuarioController = usuarioController;
         frame = new JFrame("Página de Login");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 250);
         frame.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.insets = new Insets(5, 5, 5, 5); // Margens
+        gbc.insets = new Insets(5, 5, 5, 5);
 
         // Rótulos e Campos de texto
-        JLabel lblUsername = new JLabel("Nome de Usuário:");
+        JLabel lblUsername = new JLabel("E-mail:");
         gbc.gridx = 0; gbc.gridy = 0; frame.add(lblUsername, gbc);
 
         txtUsername = new JTextField(15);
@@ -53,11 +53,11 @@ public class LoginView {
         btnLoginUser.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String username = txtUsername.getText();
+                String email = txtUsername.getText();
                 String password = new String(txtPassword.getPassword());
                 
                 // Implementar lógica de autenticação de usuário
-                Usuario usuario = usuarioController.autenticarUsuario(username, password);
+                Usuario usuario = usuarioController.autenticarUsuario(email, password);
                 if (usuario != null) {
                     JOptionPane.showMessageDialog(frame, "Login realizado com sucesso!");
                     new MainApp(usuario); // Redireciona para MainApp
@@ -71,11 +71,12 @@ public class LoginView {
         btnLoginAdmin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String username = txtUsername.getText();
+                String email = txtUsername.getText();
                 String password = new String(txtPassword.getPassword());
                 // Aqui você pode validar se é realmente um administrador
-                if (isAdmin(username, password)) {
-                    new LivroView(null); // Abre a página de gerenciamento de livros
+                Usuario usuario = usuarioController.autenticarUsuario(email, password);
+                if (usuario != null && usuario.isEhAdmin()) {
+                    new LivroView(usuario); // Abre a página de gerenciamento de livros
                     frame.dispose(); // Fecha a janela de login
                 } else {
                     JOptionPane.showMessageDialog(frame, "Credenciais de Administrador inválidas!", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -91,12 +92,6 @@ public class LoginView {
         });
 
         frame.setVisible(true);
-    }
-
-    // Método de validação para administrador
-    private boolean isAdmin(String username, String password) {
-        // Substitua essa lógica pela validação real
-        return "admin".equals(username) && "senha123".equals(password);
     }
 
     private void openCadastroView() {
@@ -134,14 +129,14 @@ public class LoginView {
                 String senha = new String(txtSenha.getPassword());
                 
                 // Criação do usuário
-                Usuario usuario = new Usuario(nome, email, senha, false);
+                Usuario usuario = new Usuario(nome, email, senha, false); // ehAdmin padrão como false
                 if (usuarioController.criarUsuario(usuario) != null) {
                     JOptionPane.showMessageDialog(cadastroFrame, "Cadastro realizado com sucesso!");
                     cadastroFrame.dispose(); // Fecha a tela de cadastro
                 } else {
                     JOptionPane.showMessageDialog(cadastroFrame, "E-mail já em uso.", "Erro", JOptionPane.ERROR_MESSAGE);
                 }
-            }
+            }  
         });
 
         cadastroFrame.setVisible(true);

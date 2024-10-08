@@ -8,8 +8,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
-import java.util.List;
 import java.util.Date;
+import java.util.List;
 
 public class EmprestimoView {
     private EmprestimoController controller;
@@ -30,10 +30,10 @@ public class EmprestimoView {
         JFrame frame = new JFrame("Sistema de Empréstimos");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 400);
-        frame.setLayout(new GridBagLayout()); // Usando GridBagLayout
+        frame.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.insets = new Insets(5, 5, 5, 5); // Margens
+        gbc.insets = new Insets(5, 5, 5, 5);
 
         // Rótulos e Campos de texto
         JLabel lblDataEmprestimo = new JLabel("Data do Empréstimo:");
@@ -57,13 +57,13 @@ public class EmprestimoView {
         JLabel lblLivro = new JLabel("Título do Livro:");
         gbc.gridx = 0; gbc.gridy = 2; frame.add(lblLivro, gbc);
 
-        txtLivro = new JTextField(10); // Diminuído
+        txtLivro = new JTextField(10);
         gbc.gridx = 1; gbc.gridy = 2; frame.add(txtLivro, gbc);
 
         JLabel lblUsuario = new JLabel("Nome do Usuário:");
         gbc.gridx = 0; gbc.gridy = 3; frame.add(lblUsuario, gbc);
 
-        txtUsuario = new JTextField(10); // Diminuído
+        txtUsuario = new JTextField(10);
         gbc.gridx = 1; gbc.gridy = 3; frame.add(txtUsuario, gbc);
 
         // Botões
@@ -78,7 +78,7 @@ public class EmprestimoView {
         listView = new JList<>(listModel);
         JScrollPane scrollPane = new JScrollPane(listView);
         scrollPane.setPreferredSize(new Dimension(250, 100));
-        gbc.gridwidth = 2; // O scrollPane ocupa duas colunas
+        gbc.gridwidth = 2;
         gbc.gridx = 0; gbc.gridy = 5; frame.add(scrollPane, gbc);
 
         // Ações dos botões
@@ -100,44 +100,39 @@ public class EmprestimoView {
     }
 
     private void registrarEmprestimo() {
-    // Cria um formatador para a data
-    SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatoData = new SimpleDateFormat("yyyy-MM-dd");
 
-    // Formata as datas
-    String dataEmprestimo = formatoData.format((Date) spinnerDataEmprestimo.getValue());
-    String dataDevolucao = formatoData.format((Date) spinnerDataDevolucao.getValue());
-    String livro = txtLivro.getText();
-    String usuario = txtUsuario.getText();
+        String dataEmprestimo = formatoData.format((Date) spinnerDataEmprestimo.getValue());
+        String dataDevolucao = formatoData.format((Date) spinnerDataDevolucao.getValue());
+        String livro = txtLivro.getText();
+        String usuario = txtUsuario.getText();
 
-    controller.registrarEmprestimo(dataEmprestimo, dataDevolucao, livro, usuario);
+        controller.registrarEmprestimo(dataEmprestimo, dataDevolucao, livro, usuario);
 
-    // Limpar os campos
-    spinnerDataEmprestimo.setValue(new Date());
-    spinnerDataDevolucao.setValue(new Date());
-    txtLivro.setText("");
-    txtUsuario.setText("");
+        // Limpar os campos
+        spinnerDataEmprestimo.setValue(new Date());
+        spinnerDataDevolucao.setValue(new Date());
+        txtLivro.setText("");
+        txtUsuario.setText("");
 
-    // Mostrar mensagem de sucesso
-    JOptionPane.showMessageDialog(null, "Empréstimo registrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-}
-
-
-private void listarEmprestimos() {
-    SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
-    List<Emprestimo> emprestimos = controller.listarEmprestimos();
-    listModel.clear(); // Limpa a lista antes de adicionar novos itens
-    for (Emprestimo emprestimo : emprestimos) {
-        String dataEmprestimo = formatoData.format(emprestimo.getDataEmprestimo());
-        String dataDevolucao = formatoData.format(emprestimo.getDataDevolucao());
-        String item = String.format("Livro: %s, Usuário: %s, Data de Empréstimo: %s, Data de Devolução: %s",
-                emprestimo.getLivro(), emprestimo.getUsuario(), dataEmprestimo, dataDevolucao);
-        listModel.addElement(item);
+        // Mostrar mensagem de sucesso
+        JOptionPane.showMessageDialog(null, "Empréstimo registrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
     }
-}
 
+    private void listarEmprestimos() {
+        @SuppressWarnings("unused")
+        SimpleDateFormat formatoData = new SimpleDateFormat("yyyy-MM-dd");
+        List<Emprestimo> emprestimos = controller.listarEmprestimos();
+        listModel.clear(); // Limpa a lista antes de adicionar novos itens
+        for (Emprestimo emprestimo : emprestimos) {
+            String item = String.format("Livro: %s, Usuário: %s, Data de Empréstimo: %s, Data de Devolução: %s",
+                    emprestimo.getLivro(), emprestimo.getUsuario(), emprestimo.getDataEmprestimo(), emprestimo.getDataDevolucao());
+            listModel.addElement(item);
+        }
+    }
 
     public static void main(String[] args) {
-        EmprestimoController controller = new EmprestimoController(); // Inicialize seu controller
+        EmprestimoController controller = new EmprestimoController();
         new EmprestimoView(controller);
     }
 }

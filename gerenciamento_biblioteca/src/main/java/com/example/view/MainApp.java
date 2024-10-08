@@ -38,7 +38,7 @@ public class MainApp {
         frame.add(panelLivros);
 
         // Criar um card para Gerenciar Usuários
-        JPanel panelUsuarios = createCard("Gerenciar Usuários", e -> new LoginView(usuarioController));
+        JPanel panelUsuarios = createCard("Cadastro de usuarios", e -> new LoginView(usuarioController));
         frame.add(panelUsuarios);
 
         // Criar um card para Gerenciar Empréstimos

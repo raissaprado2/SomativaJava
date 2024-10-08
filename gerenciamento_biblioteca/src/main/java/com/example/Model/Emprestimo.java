@@ -1,9 +1,6 @@
-// Emprestimo.java
 package com.example.Model;
 
 import lombok.Data;
-
-import java.time.LocalDate;
 
 @SuppressWarnings("unused")
 @Data
@@ -14,7 +11,7 @@ public class Emprestimo {
     private String livro;
     private String usuario;
 
-    // Construtor, getters e setters
+    // Construtor
     public Emprestimo(String dataEmprestimo, String dataDevolucao, String livro, String usuario) {
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucao = dataDevolucao;
@@ -22,5 +19,8 @@ public class Emprestimo {
         this.usuario = usuario;
     }
 
-    // Getters e setters...
+    // Método para definir o ID (se necessário)
+    public void setId(int id) {
+        this.id = id;
+    }
 }

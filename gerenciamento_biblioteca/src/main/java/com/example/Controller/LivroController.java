@@ -1,54 +1,37 @@
-// LivroController.java
 package com.example.Controller;
 
-import com.example.Model.Emprestimo;
+import com.example.DAO.LivroDAO;
 import com.example.Model.Livro;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-@SuppressWarnings("unused")
 public class LivroController {
+    private LivroDAO livroDAO;
 
-    private List<Livro> livros = new ArrayList<>();
-    private Long idCounter = 1L;
+    public LivroController() {
+        this.livroDAO = new LivroDAO();
+    }
 
     public Livro criarLivro(Livro livro) {
-        livro.setId(idCounter++);
-        livros.add(livro);
-        return livro;
+        livroDAO.save(livro); // Salva no banco de dados
+        return livro; // Retorna o livro criado com ID
     }
 
     public List<Livro> listarLivros() {
-        return livros;
+        return livroDAO.findAll(); // Busca do banco de dados
     }
 
     public Livro obterLivro(Long id) {
-        return livros.stream()
-                .filter(l -> l.getId().equals(id))
-                .findFirst()
-                .orElse(null);
+        return livroDAO.findById(id); // Busca do banco de dados
     }
 
-    public Livro atualizarLivro(Object object, Livro livro) {
-        for (int i = 0; i < livros.size(); i++) {
-            if (livros.get(i).getId().equals(object)) {
-                livro.setId(object);
-                livros.set(i, livro);
-                return livro;
-            }
-        }
-        return null;
+    public Livro atualizarLivro(Long id, Livro livro) {
+        livro.setId(id);
+        livroDAO.update(livro); // Atualiza no banco de dados
+        return livro; // Retorna o livro atualizado
     }
 
-    public boolean deletarLivro(Object object) {
-        return livros.removeIf(l -> l.getId().equals(object));
-    }
-
-    public void registrarEmprestimo(Emprestimo emprestimo) {
-        // Lógica para registrar o empréstimo de um livro
-        // Exemplo: Salvar no banco de dados ou adicionar à lista
-        System.out.println("Empréstimo registrado para o livro: " + emprestimo.getLivro());
+    public boolean deletarLivro(Long id) {
+        return livroDAO.delete(id); // Remove o livro do banco de dados
     }
 }
