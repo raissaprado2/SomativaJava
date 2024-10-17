@@ -82,28 +82,8 @@ Manual do Usuário: Gerenciamento de Biblioteca
 Introdução
 O projeto Gerenciamento de Biblioteca é uma aplicação Java que permite o controle eficiente de livros, usuários e empréstimos em uma biblioteca. Este manual fornece orientações sobre como instalar, configurar e usar o sistema.
 
-Clone o repositório:
 
-bash
-Copiar código
-git clone https://github.com/raissaprado2/SomativaJava.git
-
-Navegue até o diretório do projeto:
-
-bash
-Copiar código
-cd SomativaJava/gerenciamento_biblioteca
-Compile o projeto: Se você estiver utilizando Maven, execute:
-
-bash
-Copiar código
-mvn clean install
-
-Execute o projeto: Após a compilação, você pode executar a aplicação. O método de execução pode variar de acordo com a sua IDE ou se você estiver executando a partir da linha de comando.
-
-Uso : 
-
-FUNCIONALIDADES
+FUNCIONALIDADES :
 
 Cadastro de Livros: Adicione novos livros ao sistema.
 
@@ -130,6 +110,4 @@ Conclusão
 Agradecemos por usar o Gerenciamento de Biblioteca. Esperamos que a aplicação facilite o gerenciamento de sua biblioteca!
 
 ----------------------------------------------------------------------------------------------------------------------------
-
-Testes Unitários : 
 
